@@ -12,13 +12,13 @@ public class Lucky {
 
 		String[] name = new String[5];// 注册5个用户
 		String[] pass = new String[5];
-		int[]cards=new int[5];
-        int index = -1;
+		int[] cards = new int[5];
+		int index = -1;
 		String name1 = null;
 		String pass1 = null;
 
 		int card = 0;
-		Random r = new Random();
+		Random r = new Random(); 
 
 		int count = 0;
 		do// 在单个模块功能执行结束后，重新输出主界面，继续循环
@@ -48,7 +48,7 @@ public class Lucky {
 				System.out.println("注册成功！请记好您的会员卡号");
 
 				System.out.println("用户名" + "\t" + "密码" + "\t" + "会员卡号");
-                cards[index]=(int) (Math.random() * 10);
+				cards[index] = (int) (Math.random() * 10);
 				System.out.println(name[index] + "\t" + pass[index] + "\t" + cards[index]);
 
 				break;
@@ -62,41 +62,39 @@ public class Lucky {
 				System.out.print("请输入密码：");
 				Scanner input5 = new Scanner(System.in);
 				pass1 = input5.next();
-boolean flag=false;
+				boolean flag = false;
 
 				for (index = 0; index < name.length; index++) {
 
-					if (name1.equals(name[index])) {
-						if (pass1.equals(pass[index])) {
-							System.out.println("欢迎您：" + name[index]);
-							System.out.print("继续么？（y/n）：");
-							yn = input1.next();
+					if (name1.equals(name[index]) && pass1.equals(pass[index])) {
+						flag = true;
+						System.out.println("欢迎您：" + name[index]);
 
-						} else {
-							for (count = 0; count < 2; count++) {
-								System.out.println("账户信息输入错误！请重新输入！");
-
-								System.out.print("请重新输入用户名：");
-								Scanner input7 = new Scanner(System.in);
-								name1 = input7.next();
-								System.out.print("请重新输入密码：");
-								Scanner input8 = new Scanner(System.in);
-								pass1 = input8.next();
-
-								if (pass1.equals(pass[index])) {
-									System.out.println("欢迎您：" + name[index]);
-									System.out.print("继续么？（y/n）：");
-									yn = input1.next();
-
-								}
-								break;
-							}
-							if (count == 1)
-								System.out.println("3次错误，请退出重新登录");
-						}
 					}
-
 				}
+				if (flag) {
+
+				} else {
+					for (count = 0; count < 2; count++) {
+						System.out.println("账户信息输入错误！请重新输入！");
+
+						System.out.print("请重新输入用户名：");
+						Scanner input7 = new Scanner(System.in);
+						name1 = input7.next();
+						System.out.print("请重新输入密码：");
+						Scanner input8 = new Scanner(System.in);
+						pass1 = input8.next();
+						for (index = 0; index < cards.length; index++) {
+							if (name1.equals(name[index]) && pass1.equals(pass[index]))
+								System.out.println("欢迎您：" + name[index]);
+
+							
+						}if (count == 1)
+								System.out.println("3次错误，请退出重新登录");
+
+					}
+				}
+
 				break;
 			case 3:// 抽奖
 				System.out.println("[ 奖客富翁系统 > 抽奖 ]");
@@ -104,7 +102,6 @@ boolean flag=false;
 				Scanner input6 = new Scanner(System.in);
 				card = input6.nextInt();
 
-				
 				// 随机产生5个数
 				for (int i = 0; i < cards.length; i++) {
 					cards[i] = (int) (Math.random() * 10);
@@ -112,7 +109,7 @@ boolean flag=false;
 						if (cards[i] == cards[j]) {
 							cards[i] = (int) (Math.random() * 10);
 							j = -1;
-							//i--;
+							// i--;
 						}
 					}
 				}
@@ -124,7 +121,7 @@ boolean flag=false;
 				boolean flag1 = false;
 				for (int j = 0; j < cards.length; j++) {
 					if (card == cards[j]) {
-						flag = true;
+						flag1 = true;
 						break;
 
 					}
@@ -158,10 +155,3 @@ boolean flag=false;
 
 	}
 }
-
-
-
-
-
-
-
