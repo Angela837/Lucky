@@ -18,7 +18,7 @@ public class Lucky {
 		String pass1 = null;
 
 		int card = 0;
-		Random r = new Random(); 
+		Random r = new Random();
 
 		int count = 0;
 		do// 在单个模块功能执行结束后，重新输出主界面，继续循环
@@ -62,19 +62,16 @@ public class Lucky {
 				System.out.print("请输入密码：");
 				Scanner input5 = new Scanner(System.in);
 				pass1 = input5.next();
-				boolean flag = false;
+				boolean flag = false;// 判断用户名和密码是否相等
 
 				for (index = 0; index < name.length; index++) {
-
-					if (name1.equals(name[index]) && pass1.equals(pass[index])) {
+					if (name1.equals(name[index]) && pass1.equals(pass[index]))
 						flag = true;
-						System.out.println("欢迎您：" + name[index]);
-
-					}
 				}
-				if (flag) {
 
-				} else {
+				if (flag)
+					System.out.println("欢迎您：" + name[index]);
+				else {
 					for (count = 0; count < 2; count++) {
 						System.out.println("账户信息输入错误！请重新输入！");
 
@@ -84,13 +81,14 @@ public class Lucky {
 						System.out.print("请重新输入密码：");
 						Scanner input8 = new Scanner(System.in);
 						pass1 = input8.next();
+						
 						for (index = 0; index < cards.length; index++) {
 							if (name1.equals(name[index]) && pass1.equals(pass[index]))
 								System.out.println("欢迎您：" + name[index]);
 
-							
-						}if (count == 1)
-								System.out.println("3次错误，请退出重新登录");
+						}
+						if (count == 1)
+							System.out.println("3次错误，请退出重新登录");
 
 					}
 				}
