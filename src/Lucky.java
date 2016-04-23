@@ -14,6 +14,7 @@ public class Lucky {
 		String[] pass = new String[5];
 		int[] cards = new int[5];
 		int index = -1;
+
 		String name1 = null;
 		String pass1 = null;
 
@@ -65,12 +66,16 @@ public class Lucky {
 				boolean flag = false;// 判断用户名和密码是否相等
 
 				for (index = 0; index < name.length; index++) {
-					if (name1.equals(name[index]) && pass1.equals(pass[index]))
+					if (name1.equals(name[index]) && pass1.equals(pass[index])) {
+
+						System.out.println("欢迎您：" + name[index]);
 						flag = true;
+					}
 				}
 
-				if (flag)
-					System.out.println("欢迎您：" + name[index]);
+				if (flag) {
+				}
+
 				else {
 					for (count = 0; count < 2; count++) {
 						System.out.println("账户信息输入错误！请重新输入！");
@@ -81,7 +86,7 @@ public class Lucky {
 						System.out.print("请重新输入密码：");
 						Scanner input8 = new Scanner(System.in);
 						pass1 = input8.next();
-						
+
 						for (index = 0; index < cards.length; index++) {
 							if (name1.equals(name[index]) && pass1.equals(pass[index]))
 								System.out.println("欢迎您：" + name[index]);
@@ -89,7 +94,7 @@ public class Lucky {
 						}
 						if (count == 1)
 							System.out.println("3次错误，请退出重新登录");
-
+						break;
 					}
 				}
 
